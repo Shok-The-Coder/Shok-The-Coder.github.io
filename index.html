@@ -1,0 +1,133 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Roblox Code Samples!</title>
+</head>
+  <body>
+  
+  <!-- Headline title -->
+  
+  <h1 id = "web-title">Roblox code samples</h1>
+    
+    <!-- Notes -->
+    
+    <p>Note: Copy Pasting any of these codes is very bad practice! You should type the code yourself, because I the web owner cannot ident it for you.</p>
+  
+  <!-- "Table of Contents" Table -->
+  
+  <table>
+    <tr>
+      <th>
+        
+        Table of Contents
+        
+      </th>
+    </tr>
+    
+    <tr>
+      <td>
+        <a href = "#kill-brick">#1. Kill brick</a>
+      </td>            
+    </tr>
+    
+    <tr>
+      <td>
+        <a href = "#heal-brick">#2. Healing Brick</a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a href = "#click-detector-dialogue">#3. Click Detector Dialogue</a>
+      </td>
+    </tr>
+    
+  </table>
+    
+    
+    
+    
+    <!-- Kill Brick Code -->
+    
+    <h2 id = "kill-brick">Kill Brick Code</h2>
+    
+    <p>The most basic kind of code out there!</p>
+    
+    <p class = "script-instruction">-- Server Script, make sure to put inside a part--</p>
+    <p class = "code">
+      local killBrick = script.Parent<br>
+      <br>
+      local function touch(object)<br>
+        local character = object.Parent<br>
+        local humanoid = character:FindFirstChild("Humanoid")<br>
+      if humanoid then<br>
+        humanoid.Health = 0<br>
+      end<br>
+      end<br>
+      <br>
+      killBrick.Touched:Connect(touch)
+    </p>
+    
+    
+    
+    
+    <!-- Heal brick code -->
+    
+    <h2 id = "heal-brick">Healing Brick Code</h2>
+    <p>Also a very basic code that many developers use.</p>
+       
+    <p class = "script-instruction">-- Server Script, please put inside a part --</p>
+    
+    <p class = "code">
+      local healBrick = script.Parent<br>
+      <br>
+      local function touch(object)<br>
+      local character = object.Parent<br>
+      local humanoid = character:FindFirstChild("Humanoid")<br>
+      if humanoid then<br>
+      humanoid.Health += 1 -- Generates 1 hp everytime(don't need to type this, just a comment, like a reminder can be helpful)<br>
+      end<br>
+      end<br>
+      healBrick.Touched:Connect(touch)
+      
+    </p>
+    
+    
+    
+    
+    <!-- Click Detector Dialogue -->
+    
+    <h2 id = "click-detector-dialogue">Click Detector Dialogue</h2>
+    
+    <!-- Code Instruction -->
+    
+    <p class = "script-instruction">-- Server Script, add a click detector to the part and a server script, and a model called characterParts --</p>
+    
+    <!-- Code -->
+    
+    <p class = "code">local Chat = game:GetService("Chat")<br>
+      <br>
+      local ncp = script.Parent<br>
+      local characterParts = ncp.CharacterParts<br>
+      local head = characterParts.Head<br>
+      local clickDetector = ncp.ClickDetector<br>
+      <br>
+			local dialogues = {"Hello!", "How are you?", "Good bye!"}<br>
+			local dialogueNumber = 1<br>
+			<br>
+			local function talk()<br>
+			local dialogue = dialogues[dialogueNumber]<br>
+			Chat:Chat(head, dialogue)<br>
+			if dialogueNumber == #dialogues then<br>
+			dialogueNumber = 1<br>
+			else<br>
+			dialogueNumber += 1<br>
+			end<br>
+			end<br>
+			<br>
+			clickDetector.MouseClick:Connect(talk)
+    </p>
+    
+</body>
+</html>
